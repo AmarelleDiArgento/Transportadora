@@ -2,17 +2,17 @@
 package Modelo.Tabs;
 
 
-public class HojaVivaTab {
+public class HojaVidaTab {
     private int Id;
     private String Tecnomecanica;
     private String Soat;
 
-    public HojaVivaTab(String Tecnomecanica, String Soat) {
+    public HojaVidaTab(String Tecnomecanica, String Soat) {
         this.Tecnomecanica = Tecnomecanica;
         this.Soat = Soat;
     }
 
-    public HojaVivaTab(int Id, String Tecnomecanica, String Soat) {
+    public HojaVidaTab(int Id, String Tecnomecanica, String Soat) {
         this.Id = Id;
         this.Tecnomecanica = Tecnomecanica;
         this.Soat = Soat;
