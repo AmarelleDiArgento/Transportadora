@@ -1,5 +1,5 @@
 
-package DAO.Tabs;
+package Modelo.Tabs;
 
 import java.sql.Date;
 
