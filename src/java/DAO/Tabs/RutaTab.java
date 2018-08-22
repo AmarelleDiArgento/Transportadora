@@ -3,7 +3,7 @@ package DAO.Tabs;
 
 import java.sql.Time;
 
-public class RutasTab {
+public class RutaTab {
     private int Id;
     private String nombre;
     private Time HoraIni;
@@ -12,7 +12,7 @@ public class RutasTab {
     private String LugarInicio;
     private String LusarFin;
 
-    public RutasTab(String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
+    public RutaTab(String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
         this.nombre = nombre;
         this.HoraIni = HoraIni;
         this.HoraFin = HoraFin;
@@ -21,7 +21,7 @@ public class RutasTab {
         this.LusarFin = LusarFin;
     }
 
-    public RutasTab(int Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
+    public RutaTab(int Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
         this.Id = Id;
         this.nombre = nombre;
         this.HoraIni = HoraIni;
