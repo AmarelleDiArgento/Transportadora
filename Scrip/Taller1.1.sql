@@ -1,7 +1,7 @@
 /* Procedimientos tabla Roles */
 
 
-create procedure LisRoles() select * from Roles;
+CREATE procedure if not EXISTS LisRoles() select * from Roles;
 
 
 
@@ -59,14 +59,14 @@ create procedure InsUsu(in TipoDocumentoNew varchar(10),in NumDocumentoNew varch
 
 in TelefonoNew varchar(12),in DireccionNew varchar(20),in EpsNew enum ('Nueva EPS', 'Coomeva', 'Famisanar'),
 in ArlNew enum('Sura'),
-in CorreoNew varchar(50),in 
-ContraseñaNew varchar(12),in FotoNew varchar(250),in RolNew int,
+in CorreoNew varchar(50),in
+Contraseï¿½aNew varchar(12),in FotoNew varchar(250),in RolNew int,
 
 in EmpresaNew varchar(15),in EstadoNew enum('Activo','inactivo'))
 
-insert into Usuario(TipoDocumento,NumDocumento,Nombres,Telefono,Direccion,Eps,Eps,Correo,Contraseña,Foto,Rol,Empresa,Estado)
+insert into Usuario(TipoDocumento,NumDocumento,Nombres,Telefono,Direccion,Eps,Eps,Correo,Contraseï¿½a,Foto,Rol,Empresa,Estado)
 
-values(TipoDocumentoNew,NumDocumentoNew,NombresNew,TelefonoNew,DireccionNew,EpsNew,EpsNew,CorreoNew,ContraseñaNew,FotoNew,RolNew,EmpresaNew,EstadoNew);
+values(TipoDocumentoNew,NumDocumentoNew,NombresNew,TelefonoNew,DireccionNew,EpsNew,EpsNew,CorreoNew,Contraseï¿½aNew,FotoNew,RolNew,EmpresaNew,EstadoNew);
 
 
 
@@ -74,9 +74,9 @@ create procedure ActUsu(in TipoDocumento varchar(10),in NumDocumentoOld varchar(
 
 in TelefonoNew varchar(12),in DireccionNew varchar(20),in EpsNew enum ('Nueva EPS', 'Coomeva', 'Famisanar'),
 in Arl enum('Sura'),
-in Correo varchar(50),in 
-Contraseña varchar(12),in Foto varchar(250),in Estado enum('Activo', 'inactivo'))
-update Usuario set TipoDocumento=TipoDocumentoNew,Nombres=NombresNew,Telefono=TelefonoNew,Direccion=DireccionNew,Eps=EpsNew,Correo=CorreoNew,Contraseña=ContraseñaNew,Foto=FotoNew,Estado=EstadoNew where NumDocumentoOld=NumDocumentoOld;
+in Correo varchar(50),in
+Contraseï¿½a varchar(12),in Foto varchar(250),in Estado enum('Activo', 'inactivo'))
+update Usuario set TipoDocumento=TipoDocumentoNew,Nombres=NombresNew,Telefono=TelefonoNew,Direccion=DireccionNew,Eps=EpsNew,Correo=CorreoNew,Contraseï¿½a=Contraseï¿½aNew,Foto=FotoNew,Estado=EstadoNew where NumDocumentoOld=NumDocumentoOld;
 
 create procedure ElimEmp(in NumDocumentoOld varchar(15))
 delete from Empresa where NumDocumento=NumDocumentoOld;
@@ -113,7 +113,7 @@ create procedure EliRut(in IDOld int)delete from Rutas where ID=IDOld;
 
 
 /* Procedimientos tabla Eventos */
- 
+
 
 
 create procedure LisEve() select * from Eventos;
@@ -157,7 +157,7 @@ create procedure InsVehi(in PlacaNew varchar(12),in MarcaNew varchar(12),in Mode
 
 in ChasisNew varchar(20),in PasajerosNew int,in EmpresaNew varchar(15),in DatoHojaVehiNew int)
 
-insert into Vehiculo(Placa,Marca,Modelo,Chasis,Pasajeros,Empresa,DatoHojdaVehi) 
+insert into Vehiculo(Placa,Marca,Modelo,Chasis,Pasajeros,Empresa,DatoHojdaVehi)
 values(PlacaNew,MarcaNew,ModeloNew,ChasisNew,PasajerosNew,EmpresaNew,DatoHojdaVehiNew);
 
 

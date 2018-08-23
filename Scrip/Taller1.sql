@@ -4,13 +4,13 @@ CREATE USER IF NOT EXISTS 'Taller1'@'localhost' IDENTIFIED BY 'Taller1';
 
 
 
-create database taller1;
+CREATE DATABASE IF NOT EXISTS taller1;
 
-use  taller1;
+use taller1;
 
 
 
-create table Roles(
+CREATE TABLE IF NOT EXISTS Rol(
 
 	ID int auto_increment primary key,
 
@@ -18,12 +18,12 @@ create table Roles(
 
 	Descripcion varchar (30),
 
-	//Estado enum('Activo', 'inactivo')
+	Estado boolean
 
 );
 
 
-create table Empresa(
+CREATE TABLE IF NOT EXISTS  Empresa(
 
 	Nit varchar(15) primary key,
 	RazonSoc varchar(10),
@@ -34,10 +34,10 @@ create table Empresa(
 
 	Direccion varchar (20),
 
-	Estado enum('Activo', 'inactivo')
+	Estado boolean
 );
 
-create table Usuario(
+CREATE TABLE IF NOT EXISTS Usuario(
 
 	TipoDocumento varchar(10),
 
@@ -54,23 +54,23 @@ create table Usuario(
 
 	Correo varchar(50),
 
-	Contraseña varchar(12),
+	Contrasena varchar(12),
 
 	Foto varchar(250),
 
 	Rol int,
 
 	Empresa varchar(15),
-	Estado enum('Activo', 'inactivo'),
- 
-   constraint Usuario_Roles Foreign Key (Rol) references Roles(ID) on delete cascade on update cascade,
- 
+	Estado boolean,
+
+   constraint Usuario_Rol Foreign Key (Rol) references Rol(ID) on delete cascade on update cascade,
+
    constraint Usuario_Empresa Foreign Key (Empresa) references Empresa (Nit) on delete cascade on update cascade
 
 );
 
 
-create table Rutas(
+CREATE TABLE IF NOT EXISTS Ruta(
 
 	ID int auto_increment primary key,
 
@@ -84,11 +84,13 @@ create table Rutas(
 
 	LugarIni varchar(12),
 
-	LugarFin varchar(12)
+	LugarFin varchar(12),
+
+	Estado boolean
 
 );
 
-create table Eventos(
+CREATE TABLE IF NOT EXISTS  Eventos(
 
 	ID int auto_increment primary key,
 
@@ -97,7 +99,7 @@ create table Eventos(
 );
 
 
-create table HojaVehi(
+CREATE TABLE IF NOT EXISTS  HojaVehi(
 
 	ID int auto_increment primary key,
 
@@ -108,7 +110,7 @@ create table HojaVehi(
 );
 
 
-create table Vehiculo(
+CREATE TABLE IF NOT EXISTS  Vehiculo(
 
 	Placa varchar(12) primary key,
 
@@ -132,32 +134,22 @@ create table Vehiculo(
 
 
 
-create table Historico(
+CREATE TABLE IF NOT EXISTS Historico(
 
 	ID int auto_increment primary key,
-
-	Placa varchar(12),
-
-	Conductor varchar(15),
-
-	Ruta int,
-
-	Evento int,
-
-	Descripcion varchar(250),
+  Placa varchar(12),
+  Conductor varchar(15),
+  Ruta int,
+  Evento int,
+  Descripcion varchar(250),
 	Lugar varchar(250),
+  FechaIni datetime,
+  FechaFin datetime,
+  Estado boolean,
 
-	FechaIni datetime,
-
-	FechaFin datetime,
-
-	Estado enum('Proceso', 'Finalizado'),
- 
-	constraint Historico_Vehiculo Foreign Key (Placa) references Vehiculo (Placa) on delete cascade on update cascade,
-	constraint Historico_Usuario Foreign Key (Conducotor) references Usuario (NumDocumento) on delete cascade on update cascade,
-
-	constraint Historico_Rutas Foreign Key (Ruta) references Rutas (ID) on delete cascade on update cascade,
- 
+	constraint Historico_Vehiculo FOREIGN KEY (Placa) references Vehiculo (Placa) on delete cascade on update cascade,
+	constraint Historico_Usuario Foreign Key (Conductor) references Usuario (NumDocumento) on delete cascade on update cascade,
+	constraint Historico_Ruta Foreign Key (Ruta) references Ruta (ID) on delete cascade on update cascade,
 	constraint Historico_Eventos Foreign Key (Evento) references Eventos (ID) on delete cascade on update cascade
 
 );
