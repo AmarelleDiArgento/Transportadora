@@ -11,6 +11,7 @@ import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -48,12 +49,12 @@ public class UsuarioImp extends Mensajero implements Usuario{
     }
 
     @Override
-    public UsuarioTab one(String id) {
+    public UsuarioTab  bringOff(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public UsuarioTab gets(ResultSet rs) {
+    public UsuarioTab one(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

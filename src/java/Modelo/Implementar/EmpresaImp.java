@@ -11,6 +11,7 @@ import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -47,12 +48,12 @@ public class EmpresaImp extends Mensajero implements Empresa {
     }
 
     @Override
-    public EmpresaTab one(Long id) {
+    public EmpresaTab bringOff(ResultSet rs) throws SQLException{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public EmpresaTab gets(ResultSet rs) {
+    public EmpresaTab one(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

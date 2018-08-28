@@ -23,7 +23,9 @@ public class UsuarioTab implements Serializable{
     private String Contrasena;
     private String Foto;
     private String idRol;
+    
     private String nitEmpresa;
+    
     private boolean Estado;
 
     public UsuarioTab(String TipoDocumento, String NumDocumento, String Nombres, String Telefono, String Direccion, String Eps, String Arl, String Correo, String Contrasena, String Foto, String idRol, String nitEmpresa, boolean Estado) {

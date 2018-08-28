@@ -11,6 +11,7 @@ import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -47,12 +48,12 @@ public class VehiculoImp extends Mensajero implements Vehiculo {
     }
 
     @Override
-    public VehiculoTab one(String id) {
+    public VehiculoTab  bringOff(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public VehiculoTab gets(ResultSet rs) {
+    public VehiculoTab one(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

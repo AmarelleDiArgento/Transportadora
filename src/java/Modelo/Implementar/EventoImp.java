@@ -11,6 +11,7 @@ import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -48,12 +49,12 @@ public class EventoImp extends Mensajero implements Evento {
     }
 
     @Override
-    public EventoTab one(Long id) {
+    public EventoTab bringOff(ResultSet rs) throws SQLException{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public EventoTab gets(ResultSet rs) {
+    public EventoTab one(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

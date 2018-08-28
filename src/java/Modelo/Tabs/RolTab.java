@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author freyd
  */
 public class RolTab implements Serializable{
-    private int ID;
+    private Long ID;
     private String Nombre;
     private String Descripcion;
     private boolean Estado;
@@ -23,7 +23,7 @@ public class RolTab implements Serializable{
         this.Estado = Estado;
     }
 
-    public RolTab(int ID, String Nombre, String Descripcion, boolean Estado) {
+    public RolTab(Long ID, String Nombre, String Descripcion, boolean Estado) {
         this.ID = ID;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
@@ -33,14 +33,14 @@ public class RolTab implements Serializable{
     /**
      * @return the ID
      */
-    public int getID() {
+    public Long getID() {
         return ID;
     }
 
     /**
      * @param ID the ID to set
      */
-    public void setID(int ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
 

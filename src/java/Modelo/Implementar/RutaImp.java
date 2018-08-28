@@ -7,6 +7,7 @@ import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class RutaImp extends Mensajero implements Ruta{
@@ -39,12 +40,12 @@ public class RutaImp extends Mensajero implements Ruta{
     }
 
     @Override
-    public RutaTab one(Long id) {
+    public RutaTab  bringOff(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public RutaTab gets(ResultSet rs) {
+    public RutaTab one(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

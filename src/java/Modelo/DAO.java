@@ -2,6 +2,7 @@ package Modelo;
 
 
 import Servicios.Mensajes.Msj;
+import java.sql.SQLException;
 import java.util.List;
 
 /*
@@ -21,9 +22,9 @@ public interface DAO<R, O, K> {
 
     Msj delete(K id);
 
-    O one(K id);
+    O bringOff(R rs) throws  SQLException;
 
-    O gets(R rs);
+    O one(K id);
 
     List<O> all();
 }

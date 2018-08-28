@@ -7,6 +7,7 @@ import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class HojaVidaImp extends Mensajero implements HojaVida{
@@ -39,12 +40,12 @@ public class HojaVidaImp extends Mensajero implements HojaVida{
     }
 
     @Override
-    public HojaVidaTab one(Long id) {
+    public HojaVidaTab bringOff(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public HojaVidaTab gets(ResultSet rs) {
+    public HojaVidaTab one(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

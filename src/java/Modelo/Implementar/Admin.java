@@ -29,7 +29,7 @@ public class Admin implements Administrador {
 
     final String User = "Taller1";
     final String Pass = "Taller1";
-    final String DataBase = "Taller1";
+    final String DataBase = "taller1";
     final String Url = "jdbc:mysql://localhost:3306/";
 
     public Admin() throws SQLException {
