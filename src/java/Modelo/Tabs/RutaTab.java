@@ -1,45 +1,43 @@
 
 package Modelo.Tabs;
 
-import java.io.Serializable;
 import java.sql.Time;
 
-public class RutaTab implements Serializable{
-    private Long Id;
+public class RutaTab {
+    private int Id;
     private String nombre;
     private Time HoraIni;
     private Time HoraFin;
     private float km;
     private String LugarInicio;
-    private String LugarFin;
+    private String LusarFin;
 
-    public RutaTab(String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LugarFin) {
+    public RutaTab(String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
         this.nombre = nombre;
         this.HoraIni = HoraIni;
         this.HoraFin = HoraFin;
         this.km = km;
         this.LugarInicio = LugarInicio;
-        this.LugarFin = LugarFin;
+        this.LusarFin = LusarFin;
     }
 
-    public RutaTab(Long Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LugarFin) {
+    public RutaTab(int Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
         this.Id = Id;
         this.nombre = nombre;
         this.HoraIni = HoraIni;
         this.HoraFin = HoraFin;
         this.km = km;
         this.LugarInicio = LugarInicio;
-        this.LugarFin = LugarFin;
+        this.LusarFin = LusarFin;
     }
 
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long Id) {
+    public void setId(int Id) {
         this.Id = Id;
     }
-
 
     public String getNombre() {
         return nombre;
@@ -81,19 +79,18 @@ public class RutaTab implements Serializable{
         this.LugarInicio = LugarInicio;
     }
 
-    public String getLugarFin() {
-        return LugarFin;
+    public String getLusarFin() {
+        return LusarFin;
     }
 
-    public void setLusarFin(String LugarFin) {
-        this.LugarFin = LugarFin;
+    public void setLusarFin(String LusarFin) {
+        this.LusarFin = LusarFin;
     }
 
     @Override
     public String toString() {
-        return "RutaTab{" + "Id=" + Id + ", nombre=" + nombre + ", HoraIni=" + HoraIni + ", HoraFin=" + HoraFin + ", km=" + km + ", LugarInicio=" + LugarInicio + ", LugarFin=" + LugarFin + '}';
+        return "RutasTab{" + "Id=" + Id + ", nombre=" + nombre + ", HoraIni=" + HoraIni + ", HoraFin=" + HoraFin + ", km=" + km + ", LugarInicio=" + LugarInicio + ", LusarFin=" + LusarFin + '}';
     }
-
     
     
     
