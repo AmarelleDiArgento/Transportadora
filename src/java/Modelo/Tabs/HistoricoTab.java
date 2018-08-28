@@ -1,10 +1,11 @@
 
 package Modelo.Tabs;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class HistoricoTab {
-    private String id;
+public class HistoricoTab implements Serializable{
+    private Long id;
     private String Placa;
     private String Conductor;
     private int Ruta;
@@ -27,7 +28,7 @@ public class HistoricoTab {
         this.Estado = Estado;
     }
 
-    public HistoricoTab(String id, String Placa, String Conductor, int Ruta, int Evento, String Descripcion, String Lugar, Date Inicio, Date Final, boolean Estado) {
+    public HistoricoTab(Long id, String Placa, String Conductor, int Ruta, int Evento, String Descripcion, String Lugar, Date Inicio, Date Final, boolean Estado) {
         this.id = id;
         this.Placa = Placa;
         this.Conductor = Conductor;
@@ -40,11 +41,11 @@ public class HistoricoTab {
         this.Estado = Estado;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -124,8 +125,5 @@ public class HistoricoTab {
     public String toString() {
         return "HistoricoTab{" + "id=" + id + ", Placa=" + Placa + ", Conductor=" + Conductor + ", Ruta=" + Ruta + ", Evento=" + Evento + ", Descripcion=" + Descripcion + ", Lugar=" + Lugar + ", Inicio=" + Inicio + ", Final=" + Final + ", Estado=" + Estado + '}';
     }
-    
-    
-    
-    
+
 }
