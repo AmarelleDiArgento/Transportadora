@@ -6,6 +6,7 @@
 package Modelo.Tabs;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -23,10 +24,10 @@ public class UsuarioTab implements Serializable{
     private String Contrasena;
     private String Foto;
     private String idRol;
-    
     private String nitEmpresa;
-    
     private boolean Estado;
+    
+    private List<AsignarTab> PerAsignados;
 
     public UsuarioTab(String TipoDocumento, String NumDocumento, String Nombres, String Telefono, String Direccion, String Eps, String Arl, String Correo, String Contrasena, String Foto, String idRol, String nitEmpresa, boolean Estado) {
         this.TipoDocumento = TipoDocumento;
@@ -229,6 +230,20 @@ public class UsuarioTab implements Serializable{
     @Override
     public String toString() {
         return "UsuarioTab{" + "TipoDocumento=" + TipoDocumento + ", NumDocumento=" + NumDocumento + ", Nombres=" + Nombres + ", Telefono=" + Telefono + ", Direccion=" + Direccion + ", Eps=" + Eps + ", Arl=" + Arl + ", Correo=" + Correo + ", Contrasena=" + Contrasena + ", Foto=" + Foto + ", idRol=" + idRol + ", nitEmpresa=" + nitEmpresa + ", Estado=" + Estado + '}';
+    }
+
+    /**
+     * @return the PerAsignados
+     */
+    public List<AsignarTab> getPerAsignados() {
+        return PerAsignados;
+    }
+
+    /**
+     * @param PerAsignados the PerAsignados to set
+     */
+    public void setPerAsignados(List<AsignarTab> PerAsignados) {
+        this.PerAsignados = PerAsignados;
     }
     
     

@@ -11,26 +11,23 @@ import java.io.Serializable;
  *
  * @author freyd
  */
-public class RolTab implements Serializable {
+public class PermisoTab implements Serializable {
 
     private Long ID;
     private String Nombre;
-    private String Descripcion;
-    private int Jerarquia;
+    private String Url;
     private boolean Estado;
 
-    public RolTab(String Nombre, String Descripcion, int Jerarquia, boolean Estado) {
+    public PermisoTab(String Nombre, String Url, boolean Estado) {
         this.Nombre = Nombre;
-        this.Descripcion = Descripcion;
-        this.Jerarquia = Jerarquia;
+        this.Url = Url;
         this.Estado = Estado;
     }
 
-    public RolTab(Long ID, String Nombre, String Descripcion, int Jerarquia, boolean Estado) {
+    public PermisoTab(Long ID, String Nombre, String Url, boolean Estado) {
         this.ID = ID;
         this.Nombre = Nombre;
-        this.Descripcion = Descripcion;
-        this.Jerarquia = Jerarquia;
+        this.Url = Url;
         this.Estado = Estado;
     }
 
@@ -63,31 +60,17 @@ public class RolTab implements Serializable {
     }
 
     /**
-     * @return the Descripcion
+     * @return the Url
      */
-    public String getDescripcion() {
-        return Descripcion;
+    public String getUrl() {
+        return Url;
     }
 
     /**
-     * @param Descripcion the Descripcion to set
+     * @param Url the Url to set
      */
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
-    }
-
-    /**
-     * @return the Jerarquia
-     */
-    public int getJerarquia() {
-        return Jerarquia;
-    }
-
-    /**
-     * @param Jerarquia the Jerarquia to set
-     */
-    public void setJerarquia(int Jerarquia) {
-        this.Jerarquia = Jerarquia;
+    public void setUrl(String Url) {
+        this.Url = Url;
     }
 
     /**
@@ -103,10 +86,6 @@ public class RolTab implements Serializable {
     public void setEstado(boolean Estado) {
         this.Estado = Estado;
     }
-
-    @Override
-    public String toString() {
-        return "RolTab{" + "ID=" + ID + ", Nombre=" + Nombre + ", Descripcion=" + Descripcion + ", Jerarquia=" + Jerarquia + ", Estado=" + Estado + '}';
-    }
-
+    
+    
 }

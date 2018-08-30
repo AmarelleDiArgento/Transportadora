@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public abstract class Mensajero {
 
-    protected Msj m = new Msj();
+    public Msj m = new Msj();
 
     public Msj Error() {
         m.setTipo("Ok");
@@ -67,13 +67,9 @@ public abstract class Mensajero {
         return m;
     }
 
-    public void StatClose(PreparedStatement stat) {
+    public void StatClose(PreparedStatement stat) throws SQLException {
         if (stat != null) {
-            try {
                 stat.close();
-            } catch (SQLException ex) {
-                m = Error(ex);
-            }
         }
     }
 

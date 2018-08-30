@@ -7,11 +7,8 @@ package Servicios;
 
 import Modelo.Implementar.Admin;
 import Modelo.Tabs.RolTab;
-import Servicios.Mensajes.Mensajero;
-import Servicios.Mensajes.Msj;
+import Servicios.Mensajes.Mensaje;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -28,20 +25,17 @@ public class tester {
     }
     public void probador(){
         
-        Msj m = new Msj();
+        Mensaje m = new Mensaje();
         try {
-            Mensajero Msj = new Mensajero() {
-
-            };
             Admin asql = new Admin();
-            RolTab r = new RolTab("Tester", "Probador", true);
-            m = asql.getRol().insert(r);
+            RolTab r = new RolTab("Tester", "Probador", 1, true);
+            m.m = asql.getRol().insert(r);
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(tester.class.getName()).log(Level.SEVERE, null, ex);
+            m.m = m.Error(ex);
         }
-        System.out.println(m.toString());
+        System.out.println(m.m.toString());
     }
     
 }

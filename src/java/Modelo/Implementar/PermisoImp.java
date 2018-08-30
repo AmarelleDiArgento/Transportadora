@@ -5,8 +5,8 @@
  */
 package Modelo.Implementar;
 
-import Modelo.Interfaz.Rol;
-import Modelo.Tabs.RolTab;
+import Modelo.Interfaz.Permiso;
+import Modelo.Tabs.PermisoTab;
 import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
@@ -20,35 +20,34 @@ import java.util.List;
  *
  * @author freyd
  */
-public class RolImp extends Mensajero implements Rol {
+public class PermisoImp extends Mensajero implements Permiso {
 
     Connection con;
 
-    final String Insert = "Call taller1.InsRol(?,?,?);";
-    final String Update = "Call taller1.ActRol(?,?,?,?);";
-    final String Delete = "Call taller1.EliRol(?);";
-    final String One = "Call taller1.ConRol(?);";
-    final String All = "Call taller1.LisRol();";
+    final String Insert = "";
+    final String Update = "";
+    final String Delete = "";
+    final String One = "";
+    final String All = "";
 
-    public RolImp(Connection con) {
+    public PermisoImp(Connection con) {
         this.con = con;
     }
 
     @Override
-    public Msj insert(RolTab o) {
+    public Msj insert(PermisoTab o) {
         PreparedStatement stat = null;
+
         try {
             stat = con.prepareCall(Insert);
             stat.setString(1, o.getNombre());
-            stat.setString(2, o.getDescripcion());
-            stat.setInt(3, o.getJerarquia());
-            stat.setBoolean(4, o.isEstado());
+            stat.setString(2, o.getUrl());
+            stat.setBoolean(3, o.isEstado());
             if (stat.executeUpdate() == 0) {
                 m = Error();
             } else {
                 m = InsertOk(o.getNombre());
             }
-
         } catch (SQLException ex) {
             m = Error(ex);
         } finally {
@@ -62,21 +61,15 @@ public class RolImp extends Mensajero implements Rol {
     }
 
     @Override
-    public Msj update(RolTab o) {
+    public Msj update(PermisoTab o) {
         PreparedStatement stat = null;
+
         try {
             stat = con.prepareCall(Update);
             stat.setLong(1, o.getID());
             stat.setString(2, o.getNombre());
-            stat.setString(3, o.getDescripcion());
-            stat.setInt(4, o.getJerarquia());
-            stat.setBoolean(5, o.isEstado());
-            if (stat.executeUpdate() == 0) {
-                m = Error();
-            } else {
-                m = UpdateOk(o.getNombre());
-            }
-
+            stat.setString(3, o.getUrl());
+            stat.setBoolean(4, o.isEstado());
         } catch (SQLException ex) {
             m = Error(ex);
         } finally {
@@ -91,16 +84,16 @@ public class RolImp extends Mensajero implements Rol {
 
     @Override
     public Msj delete(Long id) {
-        RolTab r = one(id);
-        if (r != null) {
+        PermisoTab p = one(id);
+        if (p != null) {
             PreparedStatement stat = null;
             try {
                 stat = con.prepareCall(Delete);
-                stat.setLong(1, id);
+                stat.setLong(1, p.getID());
                 if (stat.executeUpdate() == 0) {
                     m = Error();
                 } else {
-                    m = DeleteOk(r.getNombre());
+                    m = DeleteOk(p.getNombre());
                 }
 
             } catch (SQLException ex) {
@@ -111,7 +104,6 @@ public class RolImp extends Mensajero implements Rol {
                 } catch (SQLException ex) {
                     m = Error(ex);
                 }
-
             }
         } else {
             m = notFound(id);
@@ -120,28 +112,26 @@ public class RolImp extends Mensajero implements Rol {
     }
 
     @Override
-    public RolTab bringOff(ResultSet rs) throws SQLException {
+    public PermisoTab bringOff(ResultSet rs) throws SQLException {
         Long Id = rs.getLong("ID");
         String Nombre = rs.getString("Nombre");
-        String Detalles = rs.getString("Descripcion");
-        int Jerarquia = rs.getInt("Jerarquia");
-        boolean Estado = rs.getInt("Estado") != 0;
-        RolTab r = new RolTab(Id, Nombre, Detalles, Jerarquia, Estado);
-        return r;
+        String Url = rs.getString("Url");
+        boolean Estado = rs.getBoolean("Estado");
+        PermisoTab p = new PermisoTab(Id, Nombre, Url, Estado);
+        return p;
     }
 
     @Override
-    public RolTab one(Long id) {
-
+    public PermisoTab one(Long id) {
         PreparedStatement stat = null;
         ResultSet rs = null;
-        RolTab r = null;
+        PermisoTab p = null;
         try {
             stat = con.prepareCall(One);
             stat.setLong(1, id);
             rs = stat.executeQuery();
             if (rs.next()) {
-                r = bringOff(rs);
+                p = bringOff(rs);
             } else {
                 m = notFound(id);
             }
@@ -155,21 +145,20 @@ public class RolImp extends Mensajero implements Rol {
                 m = Error(ex);
             }
         }
-        return r;
+        return p;
     }
 
     @Override
-    public List<RolTab> all() {
+    public List<PermisoTab> all() {
         PreparedStatement stat = null;
         ResultSet rs = null;
-        List<RolTab> rl = new ArrayList<>();
+        List<PermisoTab> pl = new ArrayList<>();
         try {
             stat = con.prepareCall(All);
             stat.executeQuery();
             while (rs.next()) {
-                rl.add(bringOff(rs));
+                pl.add(bringOff(rs));
             }
-
         } catch (SQLException ex) {
             m = Error(ex);
         } finally {
@@ -179,7 +168,7 @@ public class RolImp extends Mensajero implements Rol {
                 m = Error(ex);
             }
         }
-        return rl;
+        return pl;
     }
 
 }
