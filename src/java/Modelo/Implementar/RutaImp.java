@@ -5,8 +5,11 @@ import Modelo.Tabs.RutaTab;
 import Servicios.Mensajes.Mensajero;
 import Servicios.Mensajes.Msj;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RutaImp extends Mensajero implements Ruta {
@@ -63,7 +66,7 @@ public class RutaImp extends Mensajero implements Ruta {
             stat.setFloat(6, r.getKm());
             stat.setString(7, r.getLugarInicio());
             stat.setString(8, r.getLugarFin());
-            if(stat.executeUpdate() == 0){
+            if (stat.executeUpdate() == 0) {
                 m = Error();
             } else {
                 m = UpdateOk(r.getNombre());
@@ -71,7 +74,11 @@ public class RutaImp extends Mensajero implements Ruta {
         } catch (SQLException ex) {
             m = Error(ex);
         } finally {
-            StatClose(stat);
+            try {
+                StatClose(stat);
+            } catch (SQLException ex) {
+                m = Error(ex);
+            }
         }
         return m;
     }
@@ -79,22 +86,26 @@ public class RutaImp extends Mensajero implements Ruta {
     @Override
     public Msj delete(Long id) {
         RutaTab r = one(id);
-        if(r != null){
+        if (r != null) {
             PreparedStatement stat = null;
             try {
                 stat = con.prepareCall(Delete);
                 stat.setLong(1, r.getId());
-                if(stat.executeUpdate() == 0){
+                if (stat.executeUpdate() == 0) {
                     m = Error();
                 } else {
                     m = DeleteOk(one);
                 }
             } catch (SQLException ex) {
                 m = Error(ex);
-            } finally { 
-                StatClose(stat);
+            } finally {
+                try {
+                    StatClose(stat);
+                } catch (SQLException ex) {
+                    m = Error(ex);
+                }
             }
-            
+
         } else {
             m = notFound(id);
         }
@@ -102,7 +113,7 @@ public class RutaImp extends Mensajero implements Ruta {
     }
 
     @Override
-    public RutaTab  bringOff(ResultSet rs) throws SQLException {
+    public RutaTab bringOff(ResultSet rs) throws SQLException {
         Long ID = rs.getLong("ID");
         String Nombre = rs.getString("Nombre");
         Time HorarioIni = rs.getTime("HorarioIni");
@@ -123,12 +134,12 @@ public class RutaImp extends Mensajero implements Ruta {
             stat = con.prepareCall(one);
             stat.setLong(1, id);
             rs = stat.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 r = bringOff(rs);
             } else {
                 m = notFound(id);
             }
-            
+
         } catch (SQLException ex) {
             m = Error(ex);
         } finally {
@@ -149,9 +160,9 @@ public class RutaImp extends Mensajero implements Ruta {
         try {
             stat = con.prepareCall(All);
             stat.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 rl.add(bringOff(rs));
-            }   
+            }
         } catch (SQLException ex) {
             m = Error(ex);
         } finally {

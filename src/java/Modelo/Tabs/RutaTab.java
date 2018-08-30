@@ -4,13 +4,13 @@ package Modelo.Tabs;
 import java.sql.Time;
 
 public class RutaTab {
-    private int Id;
+    private Long Id;
     private String nombre;
     private Time HoraIni;
     private Time HoraFin;
     private float km;
     private String LugarInicio;
-    private String LusarFin;
+    private String LugarFin;
 
     public RutaTab(String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
         this.nombre = nombre;
@@ -18,24 +18,24 @@ public class RutaTab {
         this.HoraFin = HoraFin;
         this.km = km;
         this.LugarInicio = LugarInicio;
-        this.LusarFin = LusarFin;
+        this.LugarFin = LusarFin;
     }
 
-    public RutaTab(int Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LusarFin) {
+    public RutaTab(Long Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LugarFin) {
         this.Id = Id;
         this.nombre = nombre;
         this.HoraIni = HoraIni;
         this.HoraFin = HoraFin;
         this.km = km;
         this.LugarInicio = LugarInicio;
-        this.LusarFin = LusarFin;
+        this.LugarFin = LugarFin;
     }
 
-    public int getId() {
+    public Long getId() {
         return Id;
     }
 
-    public void setId(int Id) {
+    public void setId(Long Id) {
         this.Id = Id;
     }
 
@@ -79,17 +79,17 @@ public class RutaTab {
         this.LugarInicio = LugarInicio;
     }
 
-    public String getLusarFin() {
-        return LusarFin;
+    public String getLugarFin() {
+        return LugarFin;
     }
 
-    public void setLusarFin(String LusarFin) {
-        this.LusarFin = LusarFin;
+    public void setLugarFin(String LugarFin) {
+        this.LugarFin = LugarFin;
     }
 
     @Override
     public String toString() {
-        return "RutasTab{" + "Id=" + Id + ", nombre=" + nombre + ", HoraIni=" + HoraIni + ", HoraFin=" + HoraFin + ", km=" + km + ", LugarInicio=" + LugarInicio + ", LusarFin=" + LusarFin + '}';
+        return "RutasTab{" + "Id=" + Id + ", nombre=" + nombre + ", HoraIni=" + HoraIni + ", HoraFin=" + HoraFin + ", km=" + km + ", LugarInicio=" + LugarInicio + ", LugarFin=" + LugarFin + '}';
     }
     
     
