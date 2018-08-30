@@ -1,9 +1,10 @@
 /* Procedimientos tabla Roles */
 
 
-CREATE procedure if not EXISTS LisRoles() select * from Roles;
+CREATE procedure if not EXISTS LisRol() select * from Roles;
 
 
+CREATE procedure if not EXISTS ConRol(in IDold int) select * from Roles where ID;
 
 create procedure InsRol(in NombreNew varchar(20), in DescripcionNew varchar(30))
 insert into Roles(Nombre, Descripcion) values(NombreNew, DescripcionNew);
