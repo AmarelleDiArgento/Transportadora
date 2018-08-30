@@ -16,11 +16,11 @@ public class HistoricoImp extends Mensajero implements Historico {
 
     Connection con;
 
-    final String Insert = "";
-    final String Update = "";
-    final String Delete = "";
+    final String Insert = "Call taller1.InsHis(?,?,?,?,?,?)";
+    final String Update = "Call taller1.ActHis(?,?,?,?,?,?,?)";
+    final String Delete = "Call taller1.EliHis(?)";
     final String One = "";
-    final String All = "";
+    final String All = "Call taller1.LisHis1()";
 
     public HistoricoImp(Connection con) {
         this.con = con;
