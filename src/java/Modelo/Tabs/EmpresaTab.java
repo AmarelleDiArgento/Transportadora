@@ -18,16 +18,14 @@ public class EmpresaTab implements Serializable {
     private String Representante;
     private String Telefono;
     private String Direccion;
-    private String Arl;
     private boolean Estado;
 
-    public EmpresaTab(String Nit, String RazonSoc, String Representante, String Telefono, String Direccion, String Arl, boolean Estado) {
+    public EmpresaTab(String Nit, String RazonSoc, String Representante, String Telefono, String Direccion, boolean Estado) {
         this.Nit = Nit;
         this.RazonSoc = RazonSoc;
         this.Representante = Representante;
         this.Telefono = Telefono;
         this.Direccion = Direccion;
-        this.Arl = Arl;
         this.Estado = Estado;
     }
 
@@ -115,18 +113,10 @@ public class EmpresaTab implements Serializable {
         this.Estado = Estado;
     }
 
-    public String getArl() {
-        return Arl;
-    }
-
-    public void setArl(String Arl) {
-        this.Arl = Arl;
-    }
-
     @Override
     public String toString() {
-        return "EmpresaTab{" + "Nit=" + Nit + ", RazonSoc=" + RazonSoc + ", Representante=" + Representante + ", Telefono=" + Telefono + ", Direccion=" + Direccion + ", Arl=" + Arl + ", Estado=" + Estado + '}';
+        return "EmpresaTab{" + "Nit=" + Nit + ", RazonSoc=" + RazonSoc + ", Representante=" + Representante + ", Telefono=" + Telefono + ", Direccion=" + Direccion + ", Estado=" + Estado + '}';
     }
-    
-       
+
+        
 }

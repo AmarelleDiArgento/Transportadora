@@ -17,11 +17,11 @@ public class RutaImp extends Mensajero implements Ruta{
     
     Connection con;
     
-    final String Insert = "Call taller1.InsRut(?,?,?)";
-    final String Update = "Call taller1.ActRut(?,?,?)";
-    final String Delete = "Call taller1.EliRut(?)";
+    final String Insert = "";
+    final String Update = "";
+    final String Delete = "";
     final String one = "";
-    final String All = "Call taller1.LisRut()";
+    final String All = "";
     
     public RutaImp(Connection con){
         this.con = con;
@@ -38,7 +38,6 @@ public class RutaImp extends Mensajero implements Ruta{
             stat.setFloat(4, r.getKm());
             stat.setString(5, r.getLugarInicio());
             stat.setString(6, r.getLugarFin());
-            stat.setBoolean(7, r.isEstado());
             if(stat.executeUpdate() == 0){
                 m = Error();
             } else {
@@ -64,7 +63,6 @@ public class RutaImp extends Mensajero implements Ruta{
             stat.setFloat(6, r.getKm());
             stat.setString(7, r.getLugarInicio());
             stat.setString(8, r.getLugarFin());
-            stat.setBoolean(8, r.isEstado());
             if(stat.executeUpdate() == 0){
                 m = Error();
             } else {
@@ -112,8 +110,7 @@ public class RutaImp extends Mensajero implements Ruta{
         float Km = rs.getFloat("Km");
         String LugarIni = rs.getString("LugarIni");
         String LugarFin = rs.getString("LugarFin");
-        boolean Estado = rs.getBoolean("Estado");
-        RutaTab r = new RutaTab(ID, Nombre, HorarioIni, HorarioFin, Km, LugarIni, LugarFin, Estado);
+        RutaTab r = new RutaTab(ID, Nombre, HorarioIni, HorarioFin, Km, LugarIni, LugarFin);
         return r;
     }
 

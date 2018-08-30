@@ -12,19 +12,17 @@ public class RutaTab implements Serializable{
     private float km;
     private String LugarInicio;
     private String LugarFin;
-    private boolean Estado;
 
-    public RutaTab(String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LugarFin, boolean Estado) {
+    public RutaTab(String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LugarFin) {
         this.nombre = nombre;
         this.HoraIni = HoraIni;
         this.HoraFin = HoraFin;
         this.km = km;
         this.LugarInicio = LugarInicio;
         this.LugarFin = LugarFin;
-        this.Estado = Estado;
     }
 
-    public RutaTab(Long Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LugarFin, boolean Estado) {
+    public RutaTab(Long Id, String nombre, Time HoraIni, Time HoraFin, float km, String LugarInicio, String LugarFin) {
         this.Id = Id;
         this.nombre = nombre;
         this.HoraIni = HoraIni;
@@ -32,7 +30,6 @@ public class RutaTab implements Serializable{
         this.km = km;
         this.LugarInicio = LugarInicio;
         this.LugarFin = LugarFin;
-        this.Estado = Estado;
     }
 
     public Long getId() {
@@ -92,18 +89,16 @@ public class RutaTab implements Serializable{
         this.LugarFin = LugarFin;
     }
 
-    public boolean isEstado() {
-        return Estado;
-    }
-
-    public void setEstado(boolean Estado) {
-        this.Estado = Estado;
-    }
-
     @Override
     public String toString() {
-        return "RutaTab{" + "Id=" + Id + ", nombre=" + nombre + ", HoraIni=" + HoraIni + ", HoraFin=" + HoraFin + ", km=" + km + ", LugarInicio=" + LugarInicio + ", LugarFin=" + LugarFin + ", Estado=" + Estado + '}';
+        return "RutaTab{" + "Id=" + Id + ", nombre=" + nombre + ", HoraIni=" + HoraIni + ", HoraFin=" + HoraFin + ", km=" + km + ", LugarInicio=" + LugarInicio + ", LugarFin=" + LugarFin + '}';
     }
+
+    
+    
+    
+    
+    
     
     
     
