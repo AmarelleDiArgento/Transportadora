@@ -7,12 +7,16 @@ package Modelo.Interfaz;
 
 import Modelo.DAO;
 import Modelo.Tabs.AsignarTab;
+import Servicios.Mensajes.Msj;
 import java.sql.ResultSet;
 
 /**
  *
  * @author freyd
  */
-public interface Asignar extends  DAO<ResultSet,AsignarTab,Long>{
-    
+public interface Asignar extends DAO<ResultSet, AsignarTab, Long> {
+
+    public AsignarTab one(Long idPer, Long idRol);
+
+    public Msj delete(Long idPer, Long idRol);
 }

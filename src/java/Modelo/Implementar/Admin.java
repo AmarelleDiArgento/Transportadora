@@ -6,9 +6,13 @@
 package Modelo.Implementar;
 
 import Modelo.Interfaz.Administrador;
+import Modelo.Interfaz.Asignar;
 import Modelo.Interfaz.Empresa;
 import Modelo.Interfaz.Evento;
+import Modelo.Interfaz.Historico;
+import Modelo.Interfaz.Permiso;
 import Modelo.Interfaz.Rol;
+import Modelo.Interfaz.Ruta;
 import Modelo.Interfaz.Usuario;
 import Modelo.Interfaz.Vehiculo;
 import java.sql.Connection;
@@ -47,11 +51,23 @@ public class Admin implements Administrador {
         this.con = ds.getConnection();
     }
 
+    Asignar asi = null;
     Empresa emp = null;
     Evento eve = null;
+    Historico his = null;
     Rol rol = null;
+    Ruta rut = null;
     Usuario usu = null;
     Vehiculo veh = null;
+    Permiso per = null;
+
+    @Override
+    public Asignar getAsignar() {
+        if (asi == null) {
+            asi = new AsignarImp(con);
+        }
+        return asi;
+    }
 
     @Override
     public Empresa getEmpresa() {
@@ -70,11 +86,36 @@ public class Admin implements Administrador {
     }
 
     @Override
+    public Historico getHistorico() {
+        if (his == null) {
+            his = new HistoricoImp(con);
+        }
+        return his;
+    }
+
+    @Override
     public Rol getRol() {
         if (rol == null) {
             rol = new RolImp(con);
         }
         return rol;
+    }
+
+    @Override
+    public Permiso getPermiso() {
+        if (per == null) {
+            per = new PermisoImp(con);
+
+        }
+        return per;
+    }
+
+    @Override
+    public Ruta getRuta() {
+        if (rut == null) {
+            rut = new RutaImp(con);
+        }
+        return rut;
     }
 
     @Override
@@ -88,7 +129,7 @@ public class Admin implements Administrador {
     @Override
     public Vehiculo getVehiculo() {
         if (veh == null) {
-            veh = new VehiculoImp(con);
+//            veh = new VehiculoImp(con);
         }
         return veh;
     }

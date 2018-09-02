@@ -24,8 +24,8 @@ public class RolImp extends Mensajero implements Rol {
 
     Connection con;
 
-    final String Insert = "Call taller1.InsRol(?,?,?);";
-    final String Update = "Call taller1.ActRol(?,?,?,?);";
+    final String Insert = "Call taller1.InsRol(?,?,?,?);";
+    final String Update = "Call taller1.ActRol(?,?,?,?,?);";
     final String Delete = "Call taller1.EliRol(?);";
     final String One = "Call taller1.ConRol(?);";
     final String All = "Call taller1.LisRol();";
@@ -165,7 +165,7 @@ public class RolImp extends Mensajero implements Rol {
         List<RolTab> rl = new ArrayList<>();
         try {
             stat = con.prepareCall(All);
-            stat.executeQuery();
+            rs = stat.executeQuery();
             while (rs.next()) {
                 rl.add(bringOff(rs));
             }

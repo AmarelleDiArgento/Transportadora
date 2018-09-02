@@ -155,7 +155,7 @@ public class PermisoImp extends Mensajero implements Permiso {
         List<PermisoTab> pl = new ArrayList<>();
         try {
             stat = con.prepareCall(All);
-            stat.executeQuery();
+            rs = stat.executeQuery();
             while (rs.next()) {
                 pl.add(bringOff(rs));
             }

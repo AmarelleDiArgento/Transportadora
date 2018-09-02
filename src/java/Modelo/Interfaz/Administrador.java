@@ -11,15 +11,22 @@ package Modelo.Interfaz;
  */
 public interface Administrador {
 
+    Asignar getAsignar();
+
     Empresa getEmpresa();
 
     Evento getEvento();
 
+    Historico getHistorico();
+
+    Permiso getPermiso();
+
     Rol getRol();
+
+    Ruta getRuta();
 
     Usuario getUsuario();
 
     Vehiculo getVehiculo();
 
-    
 }

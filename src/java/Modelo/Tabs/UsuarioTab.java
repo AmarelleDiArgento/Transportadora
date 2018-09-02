@@ -5,14 +5,18 @@
  */
 package Modelo.Tabs;
 
+import Modelo.Implementar.Admin;
+import Modelo.Implementar.RolImp;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
  *
  * @author freyd
  */
-public class UsuarioTab implements Serializable{
+public class UsuarioTab implements Serializable {
+
     private String TipoDocumento;
     private String NumDocumento;
     private String Nombres;
@@ -23,13 +27,13 @@ public class UsuarioTab implements Serializable{
     private String Correo;
     private String Contrasena;
     private String Foto;
-    private String idRol;
+    private Long idRol;
     private String nitEmpresa;
     private boolean Estado;
-    
-    private List<AsignarTab> PerAsignados;
 
-    public UsuarioTab(String TipoDocumento, String NumDocumento, String Nombres, String Telefono, String Direccion, String Eps, String Arl, String Correo, String Contrasena, String Foto, String idRol, String nitEmpresa, boolean Estado) {
+    private RolTab Rol;
+
+    public UsuarioTab(String TipoDocumento, String NumDocumento, String Nombres, String Telefono, String Direccion, String Eps, String Arl, String Correo, String Contrasena, String Foto, Long idRol, String nitEmpresa, boolean Estado) {
         this.TipoDocumento = TipoDocumento;
         this.NumDocumento = NumDocumento;
         this.Nombres = Nombres;
@@ -188,14 +192,14 @@ public class UsuarioTab implements Serializable{
     /**
      * @return the idRol
      */
-    public String getIdRol() {
+    public Long getIdRol() {
         return idRol;
     }
 
     /**
      * @param idRol the idRol to set
      */
-    public void setIdRol(String idRol) {
+    public void setIdRol(Long idRol) {
         this.idRol = idRol;
     }
 
@@ -227,24 +231,25 @@ public class UsuarioTab implements Serializable{
         this.Estado = Estado;
     }
 
+    /**
+     * @return the Rol
+     */
+    public RolTab getRol() {
+
+        return Rol;
+    }
+
+    /**
+     * @param Rol the Rol to set
+     */
+    public void setRol(RolTab Rol) throws SQLException {
+        Admin a = new Admin();
+        this.Rol = a.getRol().one(idRol);
+    }
+
     @Override
     public String toString() {
         return "UsuarioTab{" + "TipoDocumento=" + TipoDocumento + ", NumDocumento=" + NumDocumento + ", Nombres=" + Nombres + ", Telefono=" + Telefono + ", Direccion=" + Direccion + ", Eps=" + Eps + ", Arl=" + Arl + ", Correo=" + Correo + ", Contrasena=" + Contrasena + ", Foto=" + Foto + ", idRol=" + idRol + ", nitEmpresa=" + nitEmpresa + ", Estado=" + Estado + '}';
     }
 
-    /**
-     * @return the PerAsignados
-     */
-    public List<AsignarTab> getPerAsignados() {
-        return PerAsignados;
-    }
-
-    /**
-     * @param PerAsignados the PerAsignados to set
-     */
-    public void setPerAsignados(List<AsignarTab> PerAsignados) {
-        this.PerAsignados = PerAsignados;
-    }
-    
-    
 }
