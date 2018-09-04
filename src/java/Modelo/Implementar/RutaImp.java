@@ -16,11 +16,11 @@ public class RutaImp extends Mensajero implements Ruta {
 
     Connection con;
 
-    final String Insert = "";
-    final String Update = "";
-    final String Delete = "";
-    final String one = "";
-    final String All = "";
+    final String Insert = "Call taller1.InsRut(?,?,?)"; 
+    final String Update = "Call taller1.ActRut(?,?,?)"; 
+    final String Delete = "Call taller1.EliRut(?)"; 
+    final String one = ""; 
+    final String All = "Call taller1.LisRut()"; 
 
     public RutaImp(Connection con) {
         this.con = con;
