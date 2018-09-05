@@ -13,31 +13,27 @@ import java.io.Serializable;
  */
 public class EventoTab implements Serializable {
 
-    private int ID;
+    private Long ID;
     private String Nombre;
 
     public EventoTab(String Nombre) {
         this.Nombre = Nombre;
     }
 
-    public EventoTab(int ID, String Nombre) {
+    public EventoTab(Long ID, String Nombre) {
         this.ID = ID;
         this.Nombre = Nombre;
     }
 
-    /**
-     * @return the ID
-     */
-    public int getID() {
+    public Long getID() {
         return ID;
     }
 
-    /**
-     * @param ID the ID to set
-     */
-    public void setID(int ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
+
+    
 
     /**
      * @return the Nombre
