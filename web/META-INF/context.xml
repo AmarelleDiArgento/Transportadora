@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/Transportadora"/>
+<Context path="/Transportadora">
+<resource
+auth="container"
+
+name="Pool"
+username="Taller1"
+password="Taller1"
+url="jdbc:mysql://localhost:3306/taller1?zeroDateTimeBehavior=convertToNull"
+
+driverClassName="com.mysql.jdbc.Driver"
+type="javax.sql.DataSource"
+
+initialSize="0"
+maxActive="100"
+maxIdle="50"
+minIdle="25"
+removeAbandoned="true"
+removeAbandonedTimeout="55">
+    
+</resource>
+</Context>

@@ -6,6 +6,7 @@
 package Modelo.Tabs;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -18,6 +19,7 @@ public class RolTab implements Serializable {
     private String Descripcion;
     private int Jerarquia;
     private boolean Estado;
+    private List<AsignarTab> accesos;
 
     public RolTab(String Nombre, String Descripcion, int Jerarquia, boolean Estado) {
         this.Nombre = Nombre;
@@ -104,9 +106,23 @@ public class RolTab implements Serializable {
         this.Estado = Estado;
     }
 
+    /**
+     * @return the accesos
+     */
+    public List<AsignarTab> getAccesos() {
+        return accesos;
+    }
+
+    /**
+     * @param accesos the accesos to set
+     */
+    public void setAccesos(List<AsignarTab> accesos) {
+        this.accesos = accesos;
+    }
+
     @Override
     public String toString() {
-        return "RolTab{" + "ID=" + ID + ", Nombre=" + Nombre + ", Descripcion=" + Descripcion + ", Jerarquia=" + Jerarquia + ", Estado=" + Estado + '}';
+        return "RolTab{" + "ID=" + ID + ", Nombre=" + Nombre + ", Descripcion=" + Descripcion + ", Jerarquia=" + Jerarquia + ", Estado=" + Estado + ", accesos=" + accesos + '}';
     }
 
 }

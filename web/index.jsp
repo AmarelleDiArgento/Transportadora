@@ -4,6 +4,7 @@
     Author     : Wallas
 --%>
 
+<%@page import="Servicios.Mensajes.Msj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +14,13 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <%
+            HttpSession ses = request.getSession(true);
+            if (ses.getAttribute("msj") != null) {
+                Msj m = (Msj) ses.getAttribute("msj");
+                out.print(m.toString());
+            }
+
+        %>
     </body>
 </html>

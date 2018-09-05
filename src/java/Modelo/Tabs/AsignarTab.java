@@ -11,15 +11,17 @@ import java.io.Serializable;
  *
  * @author freyd
  */
-public class AsignarTab implements Serializable{
-    private Long RolId ;
+public class AsignarTab implements Serializable {
+
+    private Long RolId;
     private Long PerID;
     private int Leer;
     private boolean Nuevo;
     private boolean Modificar;
     private boolean Eliminar;
-    
+
     private PermisoTab Permiso;
+    private RolTab Rol;
 
     public AsignarTab(Long RolId, Long PerID, int Leer, boolean Nuevo, boolean Modificar, boolean Eliminar) {
         this.RolId = RolId;
@@ -128,5 +130,23 @@ public class AsignarTab implements Serializable{
         this.Permiso = Permiso;
     }
 
-    
+    /**
+     * @return the Rol
+     */
+    public RolTab getRol() {
+        return Rol;
+    }
+
+    /**
+     * @param Rol the Rol to set
+     */
+    public void setRol(RolTab Rol) {
+        this.Rol = Rol;
+    }
+
+    @Override
+    public String toString() {
+        return "AsignarTab{" + "RolId=" + RolId + ", PerID=" + PerID + ", Leer=" + Leer + ", Nuevo=" + Nuevo + ", Modificar=" + Modificar + ", Eliminar=" + Eliminar + ", Permiso=" + Permiso + ", Rol=" + Rol + '}';
+    }
+
 }
