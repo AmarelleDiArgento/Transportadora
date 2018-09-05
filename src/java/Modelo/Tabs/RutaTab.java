@@ -1,9 +1,10 @@
 
 package Modelo.Tabs;
 
+import java.io.Serializable;
 import java.sql.Time;
 
-public class RutaTab {
+public class RutaTab implements Serializable{
     private Long Id;
     private String nombre;
     private Time HoraIni;
