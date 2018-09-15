@@ -6,15 +6,12 @@
 package Control;
 
 import Modelo.Implementar.Admin;
-import Modelo.Interfaz.Asignar;
-import Modelo.Interfaz.Ruta;
 import Modelo.Tabs.AsignarTab;
 import Modelo.Tabs.RolTab;
 import Modelo.Tabs.UsuarioTab;
 import Servicios.Mensajes.Mensaje;
 import Servicios.Mensajes.Msj;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import javax.annotation.Resource;
@@ -36,8 +33,8 @@ public class RolServ extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         response.setContentType("text/html;charset=UTF-8");
+
         HttpSession ses = request.getSession(true);
         Mensaje msj = new Mensaje();
         String ruta;

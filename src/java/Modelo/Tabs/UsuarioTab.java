@@ -6,10 +6,8 @@
 package Modelo.Tabs;
 
 import Modelo.Implementar.Admin;
-import Modelo.Implementar.RolImp;
 import java.io.Serializable;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  *

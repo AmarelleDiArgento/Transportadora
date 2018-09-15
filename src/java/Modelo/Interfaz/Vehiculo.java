@@ -13,6 +13,6 @@ import java.sql.ResultSet;
  *
  * @author freyd
  */
-public interface Vehiculo extends DAO<ResultSet, VehiculoTab, String>{
+public interface Vehiculo extends DAO <ResultSet,VehiculoTab,String>{
     
 }
