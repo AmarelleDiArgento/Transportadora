@@ -94,7 +94,7 @@ public class EmpresaImp extends Mensajero implements Empresa {
     }
 
     @Override
-    public Msj delete(Long id) {
+    public Msj delete(String id) {
         EmpresaTab e = one(id);
         if(e != null){
             PreparedStatement stat = null;
@@ -135,7 +135,7 @@ public class EmpresaImp extends Mensajero implements Empresa {
     }
 
     @Override
-    public EmpresaTab one(Long id) {
+    public EmpresaTab one(String id) {
         PreparedStatement stat = null;
         ResultSet rs = null;
         EmpresaTab e = null;
