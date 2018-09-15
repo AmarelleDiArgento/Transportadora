@@ -14,12 +14,16 @@
     <body>
         <h1>Hello World!</h1>
         <form action="rols.do" method="get">
+        <div class="input.field col s12 m12 l6">
             <input type="text" name="nombre" placeholder="nombre"/>
+        </div>
+        <div class="input.field col s12 m12 l6">
             <input type="text" name="detalles" placeholder="detalles"/>
+        </div>
+        <div class="input.field col s12 m12 l6">
             <input type="checkbox" name="estado"/>
-            <input type="submit" name="Accion" value="Registrar">
-            
-            
+        </div>            
         </form>
+            <input type="submit" name="Accion" value="Registrar">
     </body>
 </html>

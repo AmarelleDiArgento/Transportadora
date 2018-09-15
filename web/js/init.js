@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Slider.init(elems, options);
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems, options);
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+    var elems = document.querySelectorAll('.timepicker');
+    var instances = M.Timepicker.init(elems, options);
   });
 
 (function($){
@@ -19,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
     $('select').formSelect();
     $('.slider').slider();
     $('.sidenav').sidenav();
+    $('.datepicker').datepicker();
+    $('.timepicker').timepicker();
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space

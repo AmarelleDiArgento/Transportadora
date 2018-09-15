@@ -12,6 +12,10 @@
         <servlet-name>UsuarioServ</servlet-name>
         <servlet-class>Control.UsuarioServ</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmpresaServ</servlet-name>
+        <servlet-class>Control.EmpresaServ</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RolServ</servlet-name>
         <url-pattern>/rols.do</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>UsuarioServ</servlet-name>
         <url-pattern>/usuarios.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmpresaServ</servlet-name>
+        <url-pattern>/empresa.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
