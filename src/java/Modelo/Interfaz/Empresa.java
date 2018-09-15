@@ -13,6 +13,6 @@ import java.sql.ResultSet;
  *
  * @author freyd
  */
-public interface Empresa extends DAO <ResultSet,EmpresaTab,Long>{
+public interface Empresa extends DAO <ResultSet,EmpresaTab,String>{
     
 }
